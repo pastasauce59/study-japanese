@@ -1,3 +1,19 @@
+body {
+    background-color: #e6d9ca;
+}
+
+.circle {
+    height: 500px;
+    width: 500px;
+    border-radius: 250px;
+    background-color: red;
+    position: fixed;
+    z-index: -1;
+    left: 50%;
+    top: 50%;
+    transform: translate(-50%, -50%);
+}
+
 .characters-container {
     display: flex;
     flex-wrap: wrap;
@@ -19,4 +35,24 @@
     border: solid;
     padding: 20px;
     border-radius: 10px;
+    background-color: #f3ebeb;
+}
+
+.card-container {
+    display: flex;
+    flex-wrap: nowrap;
+    align-content: center;
+    justify-content: center;
+    align-items: center;
+    height: 85vh;
+}
+
+.card {
+    display: flex;
+    width: 150px;
+    height: 175px;
+    font-size: 75px;
+    align-content: center;
+    justify-content: center;
+    align-items: center;
 }

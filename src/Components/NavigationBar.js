@@ -12,7 +12,7 @@ function NavigationBar(props) {
                     <Nav className="me-auto">
                         <NavDropdown title="Hiragana" >
                             <NavDropdown.Item href="/hiragana">Characters</NavDropdown.Item>
-                            <NavDropdown.Item href="/hirgana/study">Study</NavDropdown.Item>
+                            <NavDropdown.Item href="/hiragana/study">Study</NavDropdown.Item>
                             <NavDropdown.Divider />
                             <NavDropdown.Item href="/hiragana/quiz">Quiz</NavDropdown.Item>
                         </NavDropdown>
