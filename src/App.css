@@ -1,3 +1,22 @@
-body {
-    padding-top: 50px;
+.characters-container {
+    display: flex;
+    flex-wrap: wrap;
+    flex-direction: row;
+    align-content: center;
+    justify-content: space-evenly;
+    align-items: center;
+    border: solid;
+    text-align: center;
+}
+
+.characters-info {
+    width: 100%;
+    padding-top: 20px;
+}
+
+.characters {
+    flex-basis: 18%;
+    border: solid;
+    padding: 20px;
+    border-radius: 10px;
 }

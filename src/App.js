@@ -1,7 +1,8 @@
 import 'bootstrap/dist/css/bootstrap.min.css'
+import "./App.css";
 import { Routes, Route, Navigate } from 'react-router-dom';
 import NavigationBar from "./Components/NavigationBar";
-import Hiragana from './Components/Hiragana';
+import HiraganaCharacters from './Components/HiraganaCharacters';
 
 function App() {
   return (
@@ -9,7 +10,7 @@ function App() {
       <NavigationBar />
 
       <Routes>
-        <Route exact path='/hiragana' element={<Hiragana />} />
+        <Route exact path='/hiragana' element={<HiraganaCharacters />} />
       </Routes>
     </div>
   );
