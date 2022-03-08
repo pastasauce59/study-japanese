@@ -80,6 +80,24 @@ body {
     transform: rotateY(180deg)
 }
 
+.number-of {
+    position: fixed;
+}
+
+.buttons {
+    display: flex;
+    align-content: center;
+    justify-content: center;
+    align-items: center;
+    flex-direction: row-reverse;
+}
+
 button {
-    padding: 150px;
+    width: 78px;
+}
+
+.study-info {
+    position: fixed;
+    top: 42.5vh;
+    width: 100px;
 }
