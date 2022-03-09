@@ -6,20 +6,39 @@ function HiraganaStudy(props) {
     const [hiragana, setHiragana] = useState(hiraganaAll)
     const [count, setCount] = useState(0)
     const [flip, setFlip] = useState(null)
+    const [listOrder, setListOrder] = useState('')
+
+    let hiraganaList = [...hiraganaAll]
 
     let handleChange = (e) => {
         if (e.target.value === 'ordered'){
-            setHiragana(hiragana.reverse());
+            setHiragana(hiraganaAll);
             setCount(0)
+            setFlip(null)
+            // setListOrder(e.target.value)
         }
         else if (e.target.value === 'reverse'){
-            setHiragana(hiragana.reverse());
+            setHiragana(hiraganaList.reverse());
             setCount(0)
+            setFlip(null)
+            // setListOrder(e.target.value)
         }
         else if (e.target.value === 'shuffle'){
             //logic soon to come
+            shuffleArray(hiraganaList);
+            setHiragana(hiraganaList)
+            setCount(0)
         }
         // console.log(e.target.value)
+    }
+
+    let shuffleArray = (array) => {
+        for (let i = array.length - 1; i > 0; i--) {
+          const j = Math.floor(Math.random() * (i + 1));
+          const temp = array[i];
+          array[i] = array[j];
+          array[j] = temp;
+        }
     }
 
     let plusMinusCount = (e) => {
@@ -27,13 +46,16 @@ function HiraganaStudy(props) {
             if (count === 70){
                 return
             } else {
-        setCount(count + 1)
+            setFlip(null);
+            setTimeout(() => {setCount(count + 1)}, 300)
+            
             }
         }
         if (e.target.textContent === 'Previous'){
             if (count === 0){
                 return
             } else {
+            setFlip(null);
             setCount(count - 1)
             }
         }
@@ -44,7 +66,8 @@ function HiraganaStudy(props) {
         flip === null ? setFlip({transform: 'rotateY(180deg)'}) : setFlip(null)
     }
 
-
+    // console.log(hiraganaAll)
+    // console.log(hiragana)
 
     return (
         <div className='study-container'>
@@ -53,15 +76,8 @@ function HiraganaStudy(props) {
             <h3>{`${hiragana.indexOf(hiragana[count]) + 1} out of ${hiragana.length}`}</h3>
             </div>
 
-            <div className='order-choice'>
-            {/* <input type='radio' name='ordered' value='ordered' checked/>
-            <label>Ordered 🔢</label>
+           <div className='order-choice'>
 
-            <input type='radio' name='reverse-order' value='reverseorder'/>
-            <label>Reverse Order ↩️</label>
-
-            <input type='radio' name='shuffle' value='shuffle'/>
-            <label>Shuffle 🔀</label> */}
             <form>
                 <label>Select Order:</label>
                 <br/>
