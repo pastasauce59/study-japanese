@@ -7,6 +7,21 @@ function HiraganaStudy(props) {
     const [count, setCount] = useState(0)
     const [flip, setFlip] = useState(null)
 
+    let handleChange = (e) => {
+        if (e.target.value === 'ordered'){
+            setHiragana(hiragana.reverse());
+            setCount(0)
+        }
+        else if (e.target.value === 'reverse'){
+            setHiragana(hiragana.reverse());
+            setCount(0)
+        }
+        else if (e.target.value === 'shuffle'){
+            //logic soon to come
+        }
+        // console.log(e.target.value)
+    }
+
     let plusMinusCount = (e) => {
         if (e.target.textContent === 'Next'){
             if (count === 70){
@@ -36,6 +51,26 @@ function HiraganaStudy(props) {
 
             <div className='number-of'>
             <h3>{`${hiragana.indexOf(hiragana[count]) + 1} out of ${hiragana.length}`}</h3>
+            </div>
+
+            <div className='order-choice'>
+            {/* <input type='radio' name='ordered' value='ordered' checked/>
+            <label>Ordered 🔢</label>
+
+            <input type='radio' name='reverse-order' value='reverseorder'/>
+            <label>Reverse Order ↩️</label>
+
+            <input type='radio' name='shuffle' value='shuffle'/>
+            <label>Shuffle 🔀</label> */}
+            <form>
+                <label>Select Order:</label>
+                <br/>
+                <select onChange={handleChange}>
+                <option value='ordered'>Ordered 🔢</option>
+                <option value='reverse'>Reverse Order ↩️</option>
+                <option value='shuffle'>Shuffle 🔀</option>
+                </select>
+            </form>
             </div>
 
             <div className='study-info'>

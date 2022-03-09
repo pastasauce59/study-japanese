@@ -101,3 +101,8 @@ button {
     top: 42.5vh;
     width: 100px;
 }
+
+.order-choice {
+    position: fixed;
+    right: 3px;
+}
