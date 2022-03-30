@@ -222,7 +222,20 @@ let hiraganaAll = [
             
 ]
 
-export { hiragana, hiraganaDakuten, hiraganaAll }
+let randomize = (array) => {
+    for (let i = array.length - 1; i > 0; i--) {
+        const j = Math.floor(Math.random() * (i + 1));
+        const temp = array[i];
+        array[i] = array[j];
+        array[j] = temp;
+      }
+
+      return array
+}
+
+let randomized = randomize(hiraganaAll)
+
+export { hiragana, hiraganaDakuten, hiraganaAll, randomized }
 
 // const dakutenArrayObj = [
 //     {Dakuten: [
