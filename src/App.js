@@ -9,7 +9,9 @@ import HiraganaQuiz from './Components/HiraganaQuiz';
 function App() {
   return (
     <div className="App">
+      
       <div className='circle'></div>
+      
       <NavigationBar />
 
       <Routes>

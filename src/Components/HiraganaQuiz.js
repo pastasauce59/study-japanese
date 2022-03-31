@@ -77,9 +77,12 @@ function HiraganaQuiz(props) {
 
     return (
         <div className='quiz-container'>
-            {shuffle === false ? <div>
-                <button onClick={beginQuiz}>Begin Quiz</button>
-            </div> :  <div>
+            {shuffle === false ? 
+                <div className='begin-quiz-container'>
+                    <div onClick={beginQuiz} className='begin-quiz'>
+                        Begin Quiz
+                    </div>
+                </div> :  <div>
             
             <div className='number-of'>
                 <h3>{`${hiragana.indexOf(hiragana[count]) + 1} out of ${hiragana.length}`}</h3>

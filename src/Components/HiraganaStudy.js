@@ -110,12 +110,14 @@ function HiraganaStudy(props) {
             </div>
 
             <div className='buttons'>
-                <div className='button'>
-                    <button onClick={plusMinusCount}>Next</button>
+                <div onClick={plusMinusCount} className='button'>
+                    Next
+                    {/* <button onClick={plusMinusCount}>Next</button> */}
                 </div>
 
-                <div className='button'>
-                    <button onClick={plusMinusCount}>Previous</button>
+                <div onClick={plusMinusCount} className='button'>
+                    {/* <button onClick={plusMinusCount}>Previous</button> */}
+                    Previous
                 </div>
             </div>
     </div>

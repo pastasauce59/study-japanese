@@ -233,7 +233,7 @@ let randomize = (array) => {
       return array
 }
 
-let randomized = randomize(hiraganaAll)
+let randomized = randomize([...hiraganaAll])
 
 export { hiragana, hiraganaDakuten, hiraganaAll, randomized }
 
