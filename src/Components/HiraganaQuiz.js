@@ -23,6 +23,18 @@ function HiraganaQuiz(props) {
           }
     }
 
+    let removeDuplicates = (arr) => {
+
+        for(let i = 0; i < arr.length; i++){
+        
+            if(arr.indexOf(arr[i]) !== arr.lastIndexOf(arr[i])){
+                let x = arr.lastIndexOf(arr[i])
+                arr[x] = arr[rand()]
+                // console.log('double')
+            } 
+        }
+    }  
+
     let rand = () => { 
        return Math.floor(Math.random() * 71);  
     } 
@@ -43,7 +55,9 @@ function HiraganaQuiz(props) {
         hiragana[rand()].key
     ]
 
+    removeDuplicates(choices)
     randomize(choices)
+    removeDuplicates(nextChoices)
     randomize(nextChoices)
     
    
@@ -94,7 +108,7 @@ function HiraganaQuiz(props) {
             {shuffle === false ? 
 
                 <div className='begin-quiz-container'>
-                    <div onClick={beginQuiz} style={style}className='begin-quiz'>
+                    <div onClick={beginQuiz} style={style} className='begin-quiz'>
                         Begin Quiz
                     </div>
 
