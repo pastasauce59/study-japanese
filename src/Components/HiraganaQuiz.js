@@ -6,7 +6,7 @@ function HiraganaQuiz(props) {
 
     const [hiragana, setHiragana] = useState(randomized)
     const [shuffle, setShuffle] = useState(false)
-    const [count, setCount] = useState(65)
+    const [count, setCount] = useState(0)
     const [correct, setCorrect] = useState(0)
     const [incorrect, setIncorrect] = useState(0)
     const [flip, setFlip] = useState(null)
@@ -29,7 +29,9 @@ function HiraganaQuiz(props) {
         
             if(arr.indexOf(arr[i]) !== arr.lastIndexOf(arr[i])){
                 let x = arr.lastIndexOf(arr[i])
-                arr[x] = arr[rand()]
+                // arr[x] = arr[rand()]
+                arr[x] = hiragana[rand()].key
+                // to check where doubles would have appeared if not for this function
                 // console.log('double')
             } 
         }
@@ -49,6 +51,7 @@ function HiraganaQuiz(props) {
     ]
 
     let nextChoices = [
+
         hiragana[count + 1].key, 
         hiragana[rand()].key,
         hiragana[rand()].key,
@@ -101,7 +104,15 @@ function HiraganaQuiz(props) {
         
     }
 
-    console.log(count)
+    if (hiragana[rand()].key === undefined){
+        console.log(rand() + 'IS UNDEFINED')
+    }  else {
+        console.log(hiragana[rand()].key)
+    }
+
+    // console.log(hiragana[0])
+    // console.log(quizKeys)
+    // console.log(quizKeys[3] === undefined)
 
     return (
         <div className='quiz-container'>
