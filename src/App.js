@@ -5,6 +5,7 @@ import NavigationBar from "./Components/NavigationBar";
 import HiraganaCharacters from './Components/HiraganaCharacters';
 import HiraganaStudy from './Components/HiraganaStudy';
 import HiraganaQuiz from './Components/HiraganaQuiz';
+import KatakanaCharacters from './Components/KatakanaCharacters';
 
 function App() {
   return (
@@ -37,6 +38,7 @@ function App() {
         <Route exact path='/hiragana' element={<HiraganaCharacters />} />
         <Route exact path='/hiragana/study' element={<HiraganaStudy />} />
         <Route exact path='/hiragana/quiz' element={<HiraganaQuiz />} />
+        <Route exact path='/katakana' element={<KatakanaCharacters />} />
       </Routes>
 
     </div>
