@@ -18,16 +18,17 @@ function NavigationBar(props) {
                         </NavDropdown>
                         <NavDropdown title="Katakana" >
                             <NavDropdown.Item href="/katakana">Characters</NavDropdown.Item>
-                            <NavDropdown.Item href="/hiragana/study">Study - Coming Soon!</NavDropdown.Item>
+                            <NavDropdown.Item href="/katakana/study">Study</NavDropdown.Item>
                             <NavDropdown.Divider />
-                            <NavDropdown.Item href="/hiragana/quiz">Quiz - Coming Soon!</NavDropdown.Item>
+                            <NavDropdown.Item href="/katakana/quiz">Quiz - Coming Soon!</NavDropdown.Item>
                         </NavDropdown>
                     </Nav>
                     <Nav>
                         <NavDropdown title="Sign In 👤" >
-                            <NavDropdown.Item href="/login">Login</NavDropdown.Item>
+                            <NavDropdown.Item 
+                            href="/login">Login - Coming Soon!</NavDropdown.Item>
                             <NavDropdown.Divider />
-                            <NavDropdown.Item href="/signup">Sign Up</NavDropdown.Item>
+                            <NavDropdown.Item href="/signup">Sign Up - Coming Soon!</NavDropdown.Item>
                         </NavDropdown>
                     </Nav>
                     </Navbar.Collapse>

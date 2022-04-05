@@ -6,6 +6,7 @@ import HiraganaCharacters from './Components/HiraganaCharacters';
 import HiraganaStudy from './Components/HiraganaStudy';
 import HiraganaQuiz from './Components/HiraganaQuiz';
 import KatakanaCharacters from './Components/KatakanaCharacters';
+import KatakanaStudy from './Components/KatakanaStudy';
 
 function App() {
   return (
@@ -39,6 +40,7 @@ function App() {
         <Route exact path='/hiragana/study' element={<HiraganaStudy />} />
         <Route exact path='/hiragana/quiz' element={<HiraganaQuiz />} />
         <Route exact path='/katakana' element={<KatakanaCharacters />} />
+        <Route exact path='/katakana/study' element={<KatakanaStudy />} />
       </Routes>
 
     </div>

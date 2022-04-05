@@ -1,28 +1,27 @@
 import React, { useState } from 'react'
-import { hiraganaAll } from './Hiragana'
+import { katakanaAll } from './Katakana'
 
-function HiraganaStudy(props) {
-
-    const [hiragana, setHiragana] = useState(hiraganaAll)
+function KatakanaStudy(props) {
+    const [katakana, setKatakana] = useState(katakanaAll)
     const [count, setCount] = useState(0)
     const [flip, setFlip] = useState(null)
 
-    let hiraganaList = [...hiraganaAll]
+    let katakanaList = [...katakanaAll]
 
     let handleChange = (e) => {
         if (e.target.value === 'ordered'){
-            setHiragana(hiraganaAll);
+            setKatakana(katakanaAll);
             setCount(0)
             setFlip(null)
         }
         else if (e.target.value === 'reverse'){
-            setHiragana(hiraganaList.reverse());
+            setKatakana(katakanaList.reverse());
             setCount(0)
             setFlip(null)
         }
         else if (e.target.value === 'shuffle'){
-            shuffleArray(hiraganaList);
-            setHiragana(hiraganaList)
+            shuffleArray(katakanaList);
+            setKatakana(katakanaList)
             setCount(0)
         }
     }
@@ -59,13 +58,13 @@ function HiraganaStudy(props) {
     let handleFlip = () => {
         flip === null ? setFlip({transform: 'rotateY(180deg)'}) : setFlip(null)
     }
-
+    
 
     return (
         <div className='study-container'>
 
             <div className='number-of'>
-            <h3>{`${hiragana.indexOf(hiragana[count]) + 1} out of ${hiragana.length}`}</h3>
+            <h3>{`${katakana.indexOf(katakana[count]) + 1} out of ${katakana.length}`}</h3>
             </div>
 
            <div className='order-choice'>
@@ -89,13 +88,13 @@ function HiraganaStudy(props) {
                 <div onClick={handleFlip} className='card' style={flip}>
                     <div className='front-card'>
                         <hr/>
-                        {hiragana[count].character}
+                        {katakana[count].character}
                         <hr/>
                     </div>
 
                     <div className='back-card'>
                         <hr/>
-                        {hiragana[count].key}
+                        {katakana[count].key}
                         <hr/>
                     </div>
                 </div>
@@ -114,4 +113,4 @@ function HiraganaStudy(props) {
     );
 }
 
-export default HiraganaStudy;
+export default KatakanaStudy;
