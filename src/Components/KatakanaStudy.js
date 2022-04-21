@@ -58,7 +58,7 @@ function KatakanaStudy(props) {
     let handleFlip = () => {
         flip === null ? setFlip({transform: 'rotateY(180deg)'}) : setFlip(null)
     }
-    
+
 
     return (
         <div className='study-container'>

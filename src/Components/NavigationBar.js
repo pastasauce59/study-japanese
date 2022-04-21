@@ -20,7 +20,7 @@ function NavigationBar(props) {
                             <NavDropdown.Item href="/katakana">Characters</NavDropdown.Item>
                             <NavDropdown.Item href="/katakana/study">Study</NavDropdown.Item>
                             <NavDropdown.Divider />
-                            <NavDropdown.Item href="/katakana/quiz">Quiz - Coming Soon!</NavDropdown.Item>
+                            <NavDropdown.Item href="/katakana/quiz">Quiz</NavDropdown.Item>
                         </NavDropdown>
                     </Nav>
                     <Nav>
