@@ -15,6 +15,7 @@ function HiraganaQuiz(props) {
     const [hidden, setHidden] = useState({visibility: 'hidden'})
 
     const [wrong, setWrong] = useState([])
+    //test
 
     let randomize = (array) => {
         for (let i = array.length - 1; i > 0; i--) {
