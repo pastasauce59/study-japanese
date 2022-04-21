@@ -1,5 +1,5 @@
-import React, { useState, useEffect } from 'react';
-import { hiraganaAll, randomized } from './Hiragana';
+import React, { useState } from 'react';
+import { randomized } from './Hiragana';
 
 
 function HiraganaQuiz(props) {
