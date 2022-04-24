@@ -37,21 +37,24 @@ function HiraganaStudy(props) {
     }
 
     let plusMinusCount = (e) => {
+
         if (e.target.textContent === 'Next'){
             if (count === 70){
                 return
             } else {
-            setFlip(null);
-            setTimeout(() => {setCount(count + 1)}, 300)
-            
+            // setFlip(null)
+            setFlip({transform: 'rotateY(360deg)'})
+            setTimeout(() => {setCount(count + 1); setFlip(null)}, 300)
             }
         }
         if (e.target.textContent === 'Previous'){
             if (count === 0){
                 return
             } else {
-            setFlip(null);
-            setCount(count - 1)
+            setFlip({transform: 'rotateY(360deg)'})
+            // setFlip(null);
+            // setCount(count - 1)
+            setTimeout(() => {setCount(count - 1); setFlip(null)}, 300)
             }
         }
     }

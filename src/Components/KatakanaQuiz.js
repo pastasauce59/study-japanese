@@ -91,9 +91,9 @@ function KatakanaQuiz(props) {
 
     let beginQuiz = (e) => {
         if(e.target.textContent === 'Quiz Me Again!'){
-            window.location = 'http://localhost:3000/katakana/quiz'
+            window.location = '/katakana/quiz'
         } else if (e.target.textContent === 'Study Katakana'){
-            window.location = 'http://localhost:3000/katakana/study'
+            window.location = '/katakana/study'
         } else
         
         setShuffle(true);

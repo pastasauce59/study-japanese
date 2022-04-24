@@ -97,9 +97,9 @@ function HiraganaQuiz(props) {
 
     let beginQuiz = (e) => {
         if(e.target.textContent === 'Quiz Me Again!'){
-            window.location = 'http://localhost:3000/hiragana/quiz'
+            window.location = '/hiragana/quiz'
         } else if (e.target.textContent === 'Study Hiragana'){
-            window.location = 'http://localhost:3000/hiragana/study'
+            window.location = '/hiragana/study'
         } else
         
         setShuffle(true);
