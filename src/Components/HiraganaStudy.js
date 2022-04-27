@@ -13,18 +13,22 @@ function HiraganaStudy(props) {
         if (e.target.value === 'ordered'){
             setHiragana(hiraganaAll);
             setCount(0)
-            setFlip(null)
+            // setFlip(null)
+            setFlip({transform: 'rotateY(360deg)'})
         }
         else if (e.target.value === 'reverse'){
             setHiragana(hiraganaList.reverse());
             setCount(0)
-            setFlip(null)
+            // setFlip(null)
+            setFlip({transform: 'rotateY(360deg)'})
         }
         else if (e.target.value === 'shuffle'){
             shuffleArray(hiraganaList);
             setHiragana(hiraganaList)
             setCount(0)
+            setFlip({transform: 'rotateY(360deg)'})
         }
+        setTimeout(() => {setFlip(null)}, 300)
     }
 
     let shuffleArray = (array) => {

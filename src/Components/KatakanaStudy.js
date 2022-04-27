@@ -12,18 +12,22 @@ function KatakanaStudy(props) {
         if (e.target.value === 'ordered'){
             setKatakana(katakanaAll);
             setCount(0)
-            setFlip(null)
+            // setFlip(null)
+            setFlip({transform: 'rotateY(360deg)'})
         }
         else if (e.target.value === 'reverse'){
             setKatakana(katakanaList.reverse());
             setCount(0)
-            setFlip(null)
+            // setFlip(null)
+            setFlip({transform: 'rotateY(360deg)'})
         }
         else if (e.target.value === 'shuffle'){
             shuffleArray(katakanaList);
             setKatakana(katakanaList)
             setCount(0)
+            setFlip({transform: 'rotateY(360deg)'})
         }
+        setTimeout(() => {setFlip(null)}, 300)
     }
 
     let shuffleArray = (array) => {
@@ -36,7 +40,7 @@ function KatakanaStudy(props) {
     }
 
     let plusMinusCount = (e) => {
-        
+
         if (e.target.textContent === 'Next'){
             if (count === 70){
                 return
