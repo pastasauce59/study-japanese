@@ -56,11 +56,11 @@ function App() {
             </div>
 
             {!show ?
-              <div className='buttons'>
+              <div className='buttons-homepage'>
                 <div onClick={handleShow} style={null} className='button'>Let's Begin!</div> 
               </div> 
               :
-              <div className='buttons'>
+              <div className='buttons-homepage'>
                 <div onClick={handleClick}style={hidden} className='button'>Study Katakana</div>
                 <div className='or'>Or</div>
                 <div style={hidden} className='button'>Study Hiragana</div>
