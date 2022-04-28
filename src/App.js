@@ -1,5 +1,6 @@
 import 'bootstrap/dist/css/bootstrap.min.css'
 import "./App.css";
+import React, { useState } from 'react'
 import { Routes, Route, Navigate } from 'react-router-dom';
 import NavigationBar from "./Components/NavigationBar";
 import HiraganaCharacters from './Components/HiraganaCharacters';
@@ -10,6 +11,24 @@ import KatakanaStudy from './Components/KatakanaStudy';
 import KatakanaQuiz from './Components/KatakanaQuiz';
 
 function App() {
+  const [show, setShow] = useState(false)
+  const [hidden, setHidden] = useState({visibility: 'hidden'})
+
+  let handleShow = () => {
+    setShow(!show)
+    setHidden(null)
+  }
+
+  let handleClick = (e) => {
+    if (e.target.textContent === "Study Hiragana"){
+      window.location = '/hiragana'
+    } 
+    
+    if (e.target.textContent === "Study Katakana"){
+      window.location = '/katakana'
+    }
+  }
+
   return (
     <div className="App">
       
@@ -23,18 +42,34 @@ function App() {
             <h1 className='about'>Welcome to Study🇯🇵Japanese!</h1>
             <h4 className='about'>A little bit about this app:</h4>
             <div className='about'>
-            <p >In order to study any language, you first must start with learning the foundation that
-              is the target language's alphabet. I created this app with that goal in mind. As someone who is
-              fascinated with Japanese culture, I have taken up an interest in learning the language. That's when I came
-              to learn Japanese kind of has three alphabet's, or three different writing systems, that work together as a whole.
+              <p >In order to study any language, you first must start with learning the foundation that
+                is the target language's alphabet. I created this app with that goal in mind. As someone who is
+                fascinated with Japanese culture, I have taken up an interest in learning the language. That's when I came
+                to learn Japanese kind of has three alphabet's, or three different writing systems, that work together as a whole.
+                </p>
+                <p >
+                In this app I am focused on learning Hiragana and Katakana (because kanji is a different beast) by having 
+                character tables to refernece, index-like cards to study and finally a quiz to see how many characters can be 
+                correctly recalled. I wanted to create an app that I found easy to use, simple and straightforward at what it's
+                trying to achieve, and all while being an enjoyable user experience.
               </p>
-              <p >
-              In this app I am focused on learning Hiragana and Katakana (because kanji is a different beast) by having 
-              character tables to refernece, index-like cards to study and finally a quiz to see how many characters can be 
-              correctly recalled. I wanted to create an app that I found easy to use, simple and straightforward at what it's
-              trying to achieve, and all while being an enjoyable user experience.
-            </p>
             </div>
+
+            {!show ?
+              <div className='buttons'>
+                <div onClick={handleShow} style={null} className='button'>Let's Begin!</div> 
+              </div> 
+              :
+              <div className='buttons'>
+                <div onClick={handleClick}style={hidden} className='button'>Study Katakana</div>
+                <div className='or'>Or</div>
+                <div style={hidden} className='button'>Study Hiragana</div>
+              </div> 
+            }
+            
+            
+            
+            
           </div>
         } />
         <Route exact path='/hiragana' element={<HiraganaCharacters />} />
