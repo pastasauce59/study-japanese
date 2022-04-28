@@ -19,7 +19,6 @@ body {
     bottom: 0;
     left: 0;
     right: 0;
-    margin-top: 50px;
 }
 
 .about {
@@ -275,7 +274,7 @@ body {
     margin: 5px;
 }
 
-@media only screen and (max-width: 375px) {
+/* @media only screen and (max-width: 375px) {
     .homepage {
         display: flex;
         flex-direction: column;
@@ -286,4 +285,4 @@ body {
         height: 100%;
         padding: 15px
     }
-}
+} */
