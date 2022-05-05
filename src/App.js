@@ -49,7 +49,7 @@ function App() {
                 </p>
                 <p >
                 In this app I am focused on learning Hiragana and Katakana (because kanji is a different beast) by having 
-                character tables to refernece, index-like cards to study and finally a quiz to see how many characters can be 
+                character tables to reference, index-like cards to study and finally a quiz to see how many characters can be 
                 correctly recalled. I wanted to create an app that I found easy to use, simple and straightforward at what it's
                 trying to achieve, and all while being an enjoyable user experience.
               </p>
