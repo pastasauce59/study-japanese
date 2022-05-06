@@ -166,10 +166,14 @@ body {
     margin-right: 2.5px;
 }
 
+a {
+    text-decoration:none;
+}
+
 .study-info {
     position: fixed;
     top: 42.5vh;
-    width: 100px;
+    width: 27%;
     margin-left: 10px;
 }
 
@@ -278,5 +282,10 @@ body {
 @media only screen and (max-width: 400px) {
     .homepage {
         position: relative;
+    }
+
+    .study-info {
+        width: 22%;
+        margin-left: 5px;
     }
 }

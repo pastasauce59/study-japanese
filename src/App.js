@@ -1,7 +1,7 @@
 import 'bootstrap/dist/css/bootstrap.min.css'
 import "./App.css";
 import React, { useState } from 'react'
-import { Routes, Route, Navigate } from 'react-router-dom';
+import { Routes, Route, Navigate, Link } from 'react-router-dom';
 import NavigationBar from "./Components/NavigationBar";
 import HiraganaCharacters from './Components/HiraganaCharacters';
 import HiraganaStudy from './Components/HiraganaStudy';
@@ -12,21 +12,9 @@ import KatakanaQuiz from './Components/KatakanaQuiz';
 
 function App() {
   const [show, setShow] = useState(false)
-  const [hidden, setHidden] = useState({visibility: 'hidden'})
 
   let handleShow = () => {
     setShow(!show)
-    setHidden(null)
-  }
-
-  let handleClick = (e) => {
-    if (e.target.textContent === "Study Hiragana"){
-      window.location = '/hiragana'
-    } 
-    
-    if (e.target.textContent === "Study Katakana"){
-      window.location = '/katakana'
-    }
   }
 
   return (
@@ -47,7 +35,7 @@ function App() {
                 fascinated with Japanese culture, I have taken up an interest in learning the language. That's when I came
                 to learn Japanese kind of has three alphabet's, or three different writing systems, that work together as a whole.
                 </p>
-                <p >
+                <p>
                 In this app I am focused on learning Hiragana and Katakana (because kanji is a different beast) by having 
                 character tables to reference, index-like cards to study and finally a quiz to see how many characters can be 
                 correctly recalled. I wanted to create an app that I found easy to use, simple and straightforward at what it's
@@ -57,13 +45,13 @@ function App() {
 
             {!show ?
               <div className='buttons-homepage'>
-                <div onClick={handleShow} style={null} className='button'>Let's Begin!</div> 
+                <div onClick={handleShow} className='button'>Let's Begin!</div> 
               </div> 
               :
               <div className='buttons-homepage'>
-                <div onClick={handleClick} style={hidden} className='button'>Study Katakana</div>
+                <Link to='/katakana' className='button'>Study Katakana</Link>
                 <div className='or'>Or</div>
-                <div onClick={handleClick} style={hidden} className='button'>Study Hiragana</div>
+                <Link to='/hiragana' className='button'>Study Hiragana</Link>
               </div> 
             }
             
