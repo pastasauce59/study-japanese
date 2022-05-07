@@ -295,9 +295,9 @@ a {
 }
 
 @media only screen and (max-width: 400px) {
-    /* .homepage {
+    .homepage {
         position: relative;
-    } */
+    }
 
     .study-info {
         width: 22%;
