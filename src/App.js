@@ -34,10 +34,11 @@ function App() {
                 is the target language's alphabet. I created this app with that goal in mind. As someone who is
                 fascinated with Japanese culture, I have taken up an interest in learning the language. That's when I came
                 to learn Japanese kind of has three alphabet's, or three different writing systems, that work together as a whole.
+                They are hiragana, katakana and kanji.
                 </p>
                 <p>
-                In this app I am focused on learning Hiragana and Katakana (because kanji is a different beast) by having 
-                character tables to reference, index-like cards to study and finally a quiz to see how many characters can be 
+                This app is focused on learning hiragana and katakana (because kanji is a different beast 👺) by having 
+                character tables to reference, index cards to study and finally a quiz to see how many characters can be 
                 correctly recalled. I wanted to create an app that I found easy to use, simple and straightforward at what it's
                 trying to achieve, and all while being an enjoyable user experience.
               </p>
