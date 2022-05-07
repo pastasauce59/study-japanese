@@ -9,6 +9,7 @@ import HiraganaQuiz from './Components/HiraganaQuiz';
 import KatakanaCharacters from './Components/KatakanaCharacters';
 import KatakanaStudy from './Components/KatakanaStudy';
 import KatakanaQuiz from './Components/KatakanaQuiz';
+import Error from './Components/Error'
 
 function App() {
   const [show, setShow] = useState(false)
@@ -67,7 +68,9 @@ function App() {
         <Route exact path='/katakana' element={<KatakanaCharacters />} />
         <Route exact path='/katakana/study' element={<KatakanaStudy />} />
         <Route exact path='/katakana/quiz' element={<KatakanaQuiz />} />
-        <Route path='*' element={<Navigate replace to='/' />} />
+        {/* <Route path='*' element={<Navigate replace to='/' />} /> */}
+        <Route path='*' element={<Error />} />
+
       </Routes>
 
     </div>

@@ -3,16 +3,14 @@ body {
     font-family: 'Nunito', sans-serif;
 }
 
-.homepage {
+.homepage, .error-page {
     display: flex;
     flex-direction: column;
     flex-wrap: nowrap;
     align-content: center;
     justify-content: center;
     align-items: center;
-    /* height: 90vh; */
     padding: 15px;
-    /* padding-bottom: 50px; */
     position: absolute;
     z-index: 1;
     margin: auto;
@@ -26,6 +24,23 @@ body {
     background: #ffffff99;
     border-radius: 10px;
     padding: 10px;
+}
+
+.about-error {
+    background: #ffffff99;
+    border-radius: 10px;
+    padding: 10px;
+    display: flex;
+    flex-direction: column;
+    flex-wrap: nowrap;
+    align-content: center;
+    justify-content: center;
+    align-items: center;
+}
+
+.about-error img {
+    border-radius: 10px;
+    max-width: 100%;
 }
 
 .circle {
@@ -280,9 +295,9 @@ a {
 }
 
 @media only screen and (max-width: 400px) {
-    .homepage {
+    /* .homepage {
         position: relative;
-    }
+    } */
 
     .study-info {
         width: 22%;
