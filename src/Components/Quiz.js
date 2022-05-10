@@ -15,6 +15,7 @@ function Quiz(props) {
     const [style2, setStyle2] = useState(null)
     const [hidden, setHidden] = useState({visibility: 'hidden'})
     const [quizKeys, setQuizKeys] = useState(props.select.keys)
+    const [disabled, setDisabled] = useState(false)
     
 
     const [wrong, setWrong] = useState([])
@@ -50,7 +51,6 @@ function Quiz(props) {
 
 
     let handleClick = (e) => {
-        // console.log(e.target.textContent)
 
         let nextChoices = [
 
@@ -62,6 +62,7 @@ function Quiz(props) {
 
         removeDuplicates(nextChoices)
         randomize(nextChoices)
+        setDisabled(true)
 
         if(e.target.textContent === quiz[count].key){
             // console.log('correct')
@@ -73,12 +74,14 @@ function Quiz(props) {
             setIncorrect(incorrect + 1)
             setWrong([...wrong, quiz[count]])
         }
+
         setFlip({transform: 'rotateY(180deg)'})
         setTimeout(() => { 
             setFlip(null) 
             setStyle(null) 
             setStyle2(null)
             setQuizKeys(nextChoices)
+            setDisabled(false)
             if (count + 1 === quiz.length - 1){
                 setShuffle(false)
                 setStyle({visibility: 'hidden'})
@@ -87,6 +90,7 @@ function Quiz(props) {
             setTimeout(() => {setCount(count + 1)}, 300) }
         }, 2000)
     }
+
 
     let beginQuiz = (e) => {
 
@@ -158,7 +162,7 @@ function Quiz(props) {
                     <div className='quiz-bar'>   
             
                         {quizKeys.map(key => key === quiz[count].key ? 
-                        <h1 onClick={handleClick} style={style}>{key}</h1> : <h1 onClick={handleClick} style={style2}>{key}</h1>
+                        <h1 onClick={disabled ? null : handleClick} style={style}>{key}</h1> : <h1 onClick={disabled ? null : handleClick} style={style2}>{key}</h1>
                         )}
 
                     </div>  : null }
