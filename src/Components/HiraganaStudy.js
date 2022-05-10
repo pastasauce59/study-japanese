@@ -89,7 +89,7 @@ function HiraganaStudy(props) {
             </div>
 
             <div className='study-info'>
-                <p>ℹ️ Click on the card to the right to reveal the characters translation!</p>
+                <p>ℹ️ Click on the card to the right to reveal the character's translation!</p>
             </div>
 
             <div className='card-container'>

@@ -5,11 +5,11 @@ import { Routes, Route, Navigate, Link } from 'react-router-dom';
 import NavigationBar from "./Components/NavigationBar";
 import HiraganaCharacters from './Components/HiraganaCharacters';
 import HiraganaStudy from './Components/HiraganaStudy';
-import HiraganaQuiz from './Components/HiraganaQuiz';
 import KatakanaCharacters from './Components/KatakanaCharacters';
 import KatakanaStudy from './Components/KatakanaStudy';
-import KatakanaQuiz from './Components/KatakanaQuiz';
+import QuizSelect from './Components/QuizSelect';
 import Error from './Components/Error'
+
 
 function App() {
   const [show, setShow] = useState(false)
@@ -64,10 +64,10 @@ function App() {
         } />
         <Route exact path='/hiragana' element={<HiraganaCharacters />} />
         <Route exact path='/hiragana/study' element={<HiraganaStudy />} />
-        <Route exact path='/hiragana/quiz' element={<HiraganaQuiz />} />
+        <Route exact path='/hiragana/quiz' element={<QuizSelect from={'Hiragana'} />} />
         <Route exact path='/katakana' element={<KatakanaCharacters />} />
         <Route exact path='/katakana/study' element={<KatakanaStudy />} />
-        <Route exact path='/katakana/quiz' element={<KatakanaQuiz />} />
+        <Route exact path='/katakana/quiz' element={<QuizSelect from={'Katakana'} />} />
         {/* <Route path='*' element={<Navigate replace to='/' />} /> */}
         <Route path='*' element={<Error />} />
 
