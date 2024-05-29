@@ -9,6 +9,8 @@ import KatakanaCharacters from './Components/KatakanaCharacters';
 import KatakanaStudy from './Components/KatakanaStudy';
 import QuizSelect from './Components/QuizSelect';
 import Error from './Components/Error'
+import Login from './Components/Login';
+import SignUp from './Components/Signup';
 
 
 function App() {
@@ -62,6 +64,8 @@ function App() {
             
           </div>
         } />
+        <Route exact path='/login' element={<Login />} />
+        <Route exact path='/signup' element={<SignUp />} />
         <Route exact path='/hiragana' element={<HiraganaCharacters />} />
         <Route exact path='/hiragana/study' element={<HiraganaStudy />} />
         <Route exact path='/hiragana/quiz' element={<QuizSelect from={'Hiragana'} />} />
