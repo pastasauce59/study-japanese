@@ -1,4 +1,5 @@
-import React, { useState } from 'react';
+import React, { useState, useEffect } from 'react';
+import axios from 'axios';
 
 const SignUp = () => {
   const [username, setUsername] = useState('');
@@ -8,6 +9,11 @@ const SignUp = () => {
   const handleSignUp = (e) => {
     e.preventDefault();
     // Handle registration logic (e.g., create user account, make API call)
+    axios
+      .get('http://localhost:3001/api/')
+      .then((response) => {
+        console.log(response.data);
+      })
     console.log('Signing up with:', username, email, password);
     // Redirect user to the home page or a protected route
   };
