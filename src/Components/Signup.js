@@ -6,16 +6,22 @@ const SignUp = () => {
   const [email, setEmail] = useState('');
   const [password, setPassword] = useState('');
 
-  const handleSignUp = (e) => {
+  const handleSignUp = async (e) => {
     e.preventDefault();
-    // Handle registration logic (e.g., create user account, make API call)
-    axios
-      .get('http://localhost:3001/api/')
-      .then((response) => {
-        console.log(response.data);
-      })
-    console.log('Signing up with:', username, email, password);
-    // Redirect user to the home page or a protected route
+
+    try {
+      // Send a POST request to your backend signup route
+      const response = await axios.post('api/signup', {
+        username,
+        email,
+        password,
+      });
+
+      console.log('User registered successfully:', response.data);
+      // Redirect user to the home page or a protected route
+    } catch (error) {
+      console.error('Error signing up:', error.message);
+    }
   };
 
   return (
