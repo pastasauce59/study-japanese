@@ -1,9 +1,10 @@
 import React, { useState, useEffect } from 'react';
 import axios from 'axios';
+import { baseURL } from '../utils/constant';
 
 const SignUp = () => {
   const [username, setUsername] = useState('');
-  const [email, setEmail] = useState('');
+  // const [email, setEmail] = useState('');
   const [password, setPassword] = useState('');
 
   const handleSignUp = async (e) => {
@@ -11,10 +12,10 @@ const SignUp = () => {
 
     try {
       // Send a POST request to your backend signup route
-      const response = await axios.post('api/signup', {
+      const response = await axios.post(`${baseURL}/register`, {
         username,
-        email,
         password,
+        mistakes: []
       });
 
       console.log('User registered successfully:', response.data);
@@ -34,12 +35,12 @@ const SignUp = () => {
           value={username}
           onChange={(e) => setUsername(e.target.value)}
         />
-        <input
+        {/* <input
           type="email"
           placeholder="Email"
           value={email}
           onChange={(e) => setEmail(e.target.value)}
-        />
+        /> */}
         <input
           type="password"
           placeholder="Password"
