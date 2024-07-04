@@ -1,14 +1,27 @@
 import React, { useState } from 'react';
+import axios from "axios"
+import { baseURL } from '../utils/constant';
 
 const Login = () => {
-  const [email, setEmail] = useState('');
+  const [username, setUsername] = useState('');
   const [password, setPassword] = useState('');
 
-  const handleLogin = (e) => {
+  const handleLogin = async (e) => {
     e.preventDefault();
+
     // Handle login logic (e.g., validate credentials, make API call)
-    console.log('Logging in with:', email, password);
-    // Redirect user to the home page or a protected route
+    const response =  await axios.post(`${baseURL}/login`, {
+      username,
+      password
+    })
+
+    if (!response.data.user) {
+      console.log("User cannot be logged in, User does not exist!")
+    } else {
+      console.log(response.data)
+      console.log('Logging in with:', username, password)
+      // Redirect user to the home page or a protected route
+    }
   };
 
   return (
@@ -16,10 +29,10 @@ const Login = () => {
       <h2>Login</h2>
       <form onSubmit={handleLogin}>
         <input
-          type="email"
-          placeholder="Email"
-          value={email}
-          onChange={(e) => setEmail(e.target.value)}
+          type="username"
+          placeholder="Username"
+          value={username}
+          onChange={(e) => setUsername(e.target.value)}
         />
         <input
           type="password"
