@@ -18,10 +18,10 @@ const SignUp = () => {
         mistakes: []
       });
 
-      console.log('User registered successfully:', response.data);
+      console.log("User created successfully:", response.data)
       // Redirect user to the home page or a protected route
-    } catch (error) {
-      console.error('Error signing up:', error.message);
+    } catch (err) {
+      console.error('Error signing up:', err.response.data.error);
     }
   };
 

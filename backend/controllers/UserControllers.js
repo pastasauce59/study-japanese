@@ -1,3 +1,4 @@
+const UserModel = require("../models/UserModel")
 const userModel = require("../models/UserModel")
 
 module.exports.getUser = async (req, res) => {
@@ -13,5 +14,21 @@ module.exports.register = async (req, res) => {
             mistakes: req.body.mistakes
         })
         res.send(user)
-    } catch (error){console.log(error)}
+    } catch (err){
+        res.send({ status: 'error', error: 'Duplicate username!'})
+    }
+}
+
+module.exports.login = async (req, res) => {
+
+    const user = await UserModel.findOne({
+        username: req.body.username,
+        password: req.body.password
+    })
+
+    if (user) {
+        return res.json({status: 'ok', user: true})
+    } else {
+        return res.json({status: 'error', user: false})
+    }         
 }
