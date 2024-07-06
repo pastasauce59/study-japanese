@@ -67,7 +67,7 @@ function App() {
           </div>
         } />
         <Route exact path='/login' element={<Login />} />
-        <Route exact path='/signup' element={<SignUp />} />
+        <Route exact path='/signup' element={<SignUp setUser={setUser} />} />
         <Route exact path='/hiragana' element={<HiraganaCharacters />} />
         <Route exact path='/hiragana/study' element={<HiraganaStudy />} />
         <Route exact path='/hiragana/quiz' element={<QuizSelect from={'Hiragana'} />} />

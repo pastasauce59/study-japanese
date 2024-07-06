@@ -2,10 +2,10 @@ import React, { useState, useEffect } from 'react';
 import axios from 'axios';
 import { baseURL } from '../utils/constant';
 
-const SignUp = () => {
+const SignUp = (props) => {
   const [username, setUsername] = useState('');
-  // const [email, setEmail] = useState('');
   const [password, setPassword] = useState('');
+  const [errMsg, setErrMsg] = useState('')
 
   const handleSignUp = async (e) => {
     e.preventDefault();
@@ -18,10 +18,18 @@ const SignUp = () => {
         mistakes: []
       });
 
-      console.log("User created successfully:", response.data)
+      if (response.data.status == 'error'){
+        console.log(response.data)
+      } else {
+        console.log("User created successfully:", response.data)
+        props.setUser({
+          username: response.data.username,
+          mistakes: response.data.mistakes
+        })
+      }
       // Redirect user to the home page or a protected route
     } catch (err) {
-      console.error('Error signing up:', err.response.data.error);
+      console.log('Error signing up:', err);
     }
   };
 
