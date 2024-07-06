@@ -11,10 +11,12 @@ import QuizSelect from './Components/QuizSelect';
 import Error from './Components/Error'
 import Login from './Components/Login';
 import SignUp from './Components/Signup';
+import Session from './Components/Session';
 
 
 function App() {
   const [show, setShow] = useState(false)
+  const [user, setUser] = useState("Testing User from usestate")
 
   let handleShow = () => {
     setShow(!show)
@@ -72,6 +74,7 @@ function App() {
         <Route exact path='/katakana' element={<KatakanaCharacters />} />
         <Route exact path='/katakana/study' element={<KatakanaStudy />} />
         <Route exact path='/katakana/quiz' element={<QuizSelect from={'Katakana'} />} />
+        <Route exact path='/user_session' element={<Session user={user} />} />
         {/* <Route path='*' element={<Navigate replace to='/' />} /> */}
         <Route path='*' element={<Error />} />
 

@@ -27,7 +27,7 @@ module.exports.login = async (req, res) => {
     })
 
     if (user) {
-        return res.json({status: 'ok', user: true})
+        return res.json({status: 'ok', user: true, user_data: user})
     } else {
         return res.json({status: 'error', user: false})
     }         
