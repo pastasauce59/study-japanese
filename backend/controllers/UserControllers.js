@@ -15,7 +15,7 @@ module.exports.register = async (req, res) => {
         })
         res.send(user)
     } catch (err){
-        res.send({ status: 'error', error: 'Duplicate username!'})
+        res.send({ status: 'error', error: 'Username is already taken! ❌'})
     }
 }
 
