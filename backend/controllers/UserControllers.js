@@ -32,3 +32,17 @@ module.exports.login = async (req, res) => {
         return res.json({status: 'error', user: false})
     }         
 }
+
+module.exports.mistakes_put_request = (req, res) => {
+    const {username} = req.params
+    const {mistakes} = req.body
+
+    UserModel.findOneAndUpdate({username, mistakes})
+    .then(() => {
+        res.send("Updated successfully!")
+    })
+    .catch((error) => {
+        console.log(error)
+        res.send({error: error, msg: "Something went wrong!"})
+    })
+}
