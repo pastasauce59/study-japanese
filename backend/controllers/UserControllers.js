@@ -34,15 +34,28 @@ module.exports.login = async (req, res) => {
 }
 
 module.exports.mistakes_put_request = (req, res) => {
-    const {username} = req.params
-    const {mistakes} = req.body
+    const { username } = req.params;
+    const { mistakes } = req.body;
+    
+    // Find the user by username
+    UserModel.findOne({ username })
+        .then((user) => {
+            if (!user) {
+                return res.status(404).send({ msg: "User not found" });
+            }
 
-    UserModel.findOneAndUpdate({username, mistakes})
-    .then(() => {
-        res.send("Updated successfully!")
-    })
-    .catch((error) => {
-        console.log(error)
-        res.send({error: error, msg: "Something went wrong!"})
-    })
+            // Update the mistakes array
+            user.mistakes = mistakes;
+
+            // Save the updated user
+            return user.save();
+        })
+        .then(() => {
+            res.send("Updated successfully!");
+        })
+        .catch((error) => {
+            console.log(error);
+            res.status(500).send({ error: error, msg: "Something went wrong!" });
+        });
+    
 }
