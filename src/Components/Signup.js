@@ -12,7 +12,8 @@ const SignUp = (props) => {
 
   const handleSignUp = async (e) => {
     e.preventDefault();
-    // Send a POST request to your backend signup route
+
+    // Send a POST request to backend signup route
     const response = await axios.post(`${baseURL}/register`, {
       username,
       password,
@@ -20,17 +21,13 @@ const SignUp = (props) => {
     });
 
     if (response.data.status == 'error'){
-      // console.log(response.data)
       setErrMsg(response.data.error)
     } else {
-      console.log("User created successfully:", response.data)
-      props.setUser({
-        username: response.data.username,
-        mistakes: response.data.mistakes
-      })
+      console.log("User created successfully.")
+      alert(`Registration successful, ${response.data.username}! Proceed to login to access your account.`)
     }
       // Redirect user to the home page or a protected route
-    navigate('/user_session')
+    navigate('/login')
   };
 
   return (

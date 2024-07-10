@@ -1,8 +1,12 @@
-import React from 'react';
+import React, { useEffect } from 'react';
 import axios from "axios"
 import { baseURL } from '../utils/constant';
+import { useLocation, useNavigate } from 'react-router-dom';
 
-function Session(props) {
+function Account(props) {
+
+    const navigate = useNavigate()
+    const { state } = useLocation()
 
    const handlePost = () => {
         axios.put(`${baseURL}/update/${props.user.username}`, {mistakes: [...props.user.mistakes, "!!!WORKING? PT. 3???"]})
@@ -14,9 +18,8 @@ function Session(props) {
         })
     }
 
-
-    return (
-        <div>
+    const logged_in = () => {
+       return <div>
             {`Hello ${props.user.username}!`}
             <div>
                 <h4>Previous quiz mistakes:</h4>
@@ -26,7 +29,20 @@ function Session(props) {
                 Test Post Requst
             </button>
         </div>
+    }
+
+    useEffect(() => {
+        if (state == null || state == undefined) {
+            navigate('/login')
+        }
+    }, [state])
+
+
+    return (
+        <div>
+        {props.user ? logged_in() : navigate('*')}
+        </div>
     );
 }
 
-export default Session;
+export default Account;

@@ -28,7 +28,7 @@ const Login = (props) => {
       })
       console.log('Logging in with:', username, password)
       // Redirect user to the home page or a protected route
-      navigate('/user_session')
+      navigate('/account')
 
     }
   };
