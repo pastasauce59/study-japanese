@@ -66,7 +66,7 @@ function App() {
             
           </div>
         } />
-        <Route exact path='/login' element={<Login />} />
+        <Route exact path='/login' element={<Login setUser={setUser} />} />
         <Route exact path='/signup' element={<SignUp setUser={setUser} />} />
         <Route exact path='/hiragana' element={<HiraganaCharacters />} />
         <Route exact path='/hiragana/study' element={<HiraganaStudy />} />

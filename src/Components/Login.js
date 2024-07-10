@@ -1,10 +1,13 @@
 import React, { useState } from 'react';
 import axios from "axios"
 import { baseURL } from '../utils/constant';
+import { useNavigate } from 'react-router-dom';
 
-const Login = () => {
+const Login = (props) => {
   const [username, setUsername] = useState('');
   const [password, setPassword] = useState('');
+
+  const navigate = useNavigate()
 
   const handleLogin = async (e) => {
     e.preventDefault();
@@ -18,9 +21,15 @@ const Login = () => {
     if (!response.data.user) {
       console.log("User cannot be logged in, User does not exist!")
     } else {
-      console.log(response.data)
+      // console.log(response.data)
+      props.setUser({
+        username: response.data.user_data.username,
+        mistakes: response.data.user_data.mistakes
+      })
       console.log('Logging in with:', username, password)
       // Redirect user to the home page or a protected route
+      navigate('/user_session')
+
     }
   };
 

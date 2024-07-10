@@ -5,7 +5,7 @@ import { baseURL } from '../utils/constant';
 function Session(props) {
 
    const handlePost = () => {
-        axios.put(`${baseURL}/update/${props.user.username}`, {mistakes: [...props.user.mistakes, "IS THIS WORKING? PT. 2"]})
+        axios.put(`${baseURL}/update/${props.user.username}`, {mistakes: [...props.user.mistakes, "!!!WORKING? PT. 3???"]})
         .then((res) => {
             console.log(res.data)
         })
