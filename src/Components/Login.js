@@ -26,10 +26,9 @@ const Login = (props) => {
         username: response.data.user_data.username,
         mistakes: response.data.user_data.mistakes
       })
-      console.log('Logging in with:', username, password)
       // Redirect user to the home page or a protected route
+      console.log('Logging in with:', username, password)
       navigate('/account')
-
     }
   };
 

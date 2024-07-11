@@ -1,12 +1,11 @@
 import React, { useEffect } from 'react';
+import { useNavigate } from 'react-router-dom';
 import axios from "axios"
 import { baseURL } from '../utils/constant';
-import { useLocation, useNavigate } from 'react-router-dom';
 
 function Account(props) {
 
     const navigate = useNavigate()
-    const { state } = useLocation()
 
    const handlePost = () => {
         axios.put(`${baseURL}/update/${props.user.username}`, {mistakes: [...props.user.mistakes, "!!!WORKING? PT. 3???"]})
@@ -32,15 +31,15 @@ function Account(props) {
     }
 
     useEffect(() => {
-        if (state == null || state == undefined) {
+        if(!props.user){
             navigate('/login')
         }
-    }, [state])
+    })
 
 
     return (
         <div>
-        {props.user ? logged_in() : navigate('*')}
+        {logged_in()}
         </div>
     );
 }
