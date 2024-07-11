@@ -36,6 +36,11 @@ const SignUp = (props) => {
       <form onSubmit={handleSignUp}>
         <input
           type="text"
+          id="username"
+          name="username"
+          required
+          minLength="6"
+          maxLength="16"
           placeholder="Username"
           value={username}
           onChange={(e) => ( setUsername(e.target.value), setErrMsg(false) )}
@@ -43,6 +48,11 @@ const SignUp = (props) => {
         {errMsg != false ? <div>{errMsg}</div> : null}
         <input
           type="password"
+          id="password"
+          name="password"
+          required
+          minLength="6"
+          maxLength="16"
           placeholder="Password"
           value={password}
           onChange={(e) => setPassword(e.target.value)}
