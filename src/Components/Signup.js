@@ -31,9 +31,9 @@ const SignUp = (props) => {
   };
 
   return (
-    <div>
+    <div className='login-signup-div'>
       <h2>Sign Up</h2>
-      <form onSubmit={handleSignUp}>
+      <form className="login-signup-form" onSubmit={handleSignUp}>
         <input
           type="text"
           id="username"

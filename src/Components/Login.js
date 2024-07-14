@@ -33,9 +33,9 @@ const Login = (props) => {
   };
 
   return (
-    <div>
+    <div className='login-signup-div'>
       <h2>Login</h2>
-      <form onSubmit={handleLogin}>
+      <form className="login-signup-form" onSubmit={handleLogin}>
         <input
           type="username"
           placeholder="Username"
