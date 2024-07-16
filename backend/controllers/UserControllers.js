@@ -1,5 +1,7 @@
 const UserModel = require("../models/UserModel")
 const userModel = require("../models/UserModel")
+const jwt = require("jsonwebtoken")
+require("dotenv").config()
 
 module.exports.getUser = async (req, res) => {
     res.send("Hello, testing 1,2,3...")
@@ -27,6 +29,11 @@ module.exports.login = async (req, res) => {
     })
 
     if (user) {
+
+        const token = jwt.sign({
+            username: req.body.username,
+        }, process.env.SECRET_KEY)
+
         return res.json({status: 'ok', user: true, user_data: user})
     } else {
         return res.json({status: 'error', user: false})
