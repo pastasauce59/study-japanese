@@ -13,7 +13,7 @@ const Login = (props) => {
     e.preventDefault();
 
     // Handle login logic (e.g., validate credentials, make API call)
-    const response =  await axios.post(`${baseURL}/login`, {
+    const response = await axios.post(`${baseURL}/login`, {
       username,
       password
     })
@@ -21,7 +21,7 @@ const Login = (props) => {
     if (!response.data.user) {
       console.log("User cannot be logged in, User does not exist!")
     } else {
-      // console.log(response.data)
+      console.log(response.data)
       props.setUser({
         username: response.data.user_data.username,
         mistakes: response.data.user_data.mistakes

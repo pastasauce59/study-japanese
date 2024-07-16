@@ -34,7 +34,7 @@ module.exports.login = async (req, res) => {
             username: req.body.username,
         }, process.env.SECRET_KEY)
 
-        return res.json({status: 'ok', user: true, user_data: user})
+        return res.json({status: 'ok', user: true, user_data: token})
     } else {
         return res.json({status: 'error', user: false})
     }         
