@@ -31,10 +31,15 @@ module.exports.login = async (req, res) => {
     if (user) {
 
         const token = jwt.sign({
-            username: req.body.username,
+            userId: user._id,
         }, process.env.SECRET_KEY)
 
-        return res.json({status: 'ok', user: true, user_data: token})
+        const userData = {
+            username: user.username,
+            mistakes: user.mistakes
+        }
+
+        return res.json({status: 'ok', user: userData, token: token })
     } else {
         return res.json({status: 'error', user: false})
     }         

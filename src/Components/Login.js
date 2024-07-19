@@ -23,8 +23,8 @@ const Login = (props) => {
     } else {
       console.log(response.data)
       props.setUser({
-        username: response.data.user_data.username,
-        mistakes: response.data.user_data.mistakes
+        username: response.data.user.username,
+        mistakes: response.data.user.mistakes
       })
       // Redirect user to the home page or a protected route
       console.log('Logging in with:', username, password)
