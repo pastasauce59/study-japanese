@@ -1,6 +1,7 @@
 const UserModel = require("../models/UserModel")
 const userModel = require("../models/UserModel")
 const jwt = require("jsonwebtoken")
+const bcrypt = require("bcryptjs")
 require("dotenv").config()
 
 module.exports.getUser = async (req, res) => {
@@ -10,9 +11,11 @@ module.exports.getUser = async (req, res) => {
 module.exports.register = async (req, res) => {
     
     try {
+        const newPassword = await bcrypt.hash(req.body.password, 10)
+
         const user = await userModel.create({
             username: req.body.username,
-            password: req.body.password,
+            password: newPassword,
             mistakes: req.body.mistakes
         })
         res.send(user)
@@ -24,11 +27,16 @@ module.exports.register = async (req, res) => {
 module.exports.login = async (req, res) => {
 
     const user = await UserModel.findOne({
-        username: req.body.username,
-        password: req.body.password
+        username: req.body.username
     })
 
-    if (user) {
+    if(!user) {
+        return {status: 'error', error: 'Invalid login.'}
+    }
+
+    const isPasswordValid = await bcrypt.compare(req.body.password, user.password)
+
+    if (isPasswordValid) {
 
         const token = jwt.sign({
             userId: user._id,
@@ -43,6 +51,10 @@ module.exports.login = async (req, res) => {
     } else {
         return res.json({status: 'error', user: false})
     }         
+}
+
+module.exports.getUserData = async (req, res) => {
+
 }
 
 module.exports.mistakes_put_request = (req, res) => {
