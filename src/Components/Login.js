@@ -22,6 +22,7 @@ const Login = (props) => {
       console.log("User cannot be logged in, User does not exist!")
     } else {
       console.log(response.data)
+      localStorage.setItem('token', response.data.token)
       props.setUser({
         username: response.data.user.username,
         mistakes: response.data.user.mistakes

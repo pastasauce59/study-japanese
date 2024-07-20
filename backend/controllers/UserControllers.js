@@ -32,7 +32,7 @@ module.exports.login = async (req, res) => {
 
         const token = jwt.sign({
             userId: user._id,
-        }, process.env.SECRET_KEY)
+        }, process.env.SECRET_KEY, {expiresIn: '1h'})
 
         const userData = {
             username: user.username,
