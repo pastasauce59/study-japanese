@@ -4,9 +4,11 @@ const jwt = require("jsonwebtoken")
 const bcrypt = require("bcryptjs")
 require("dotenv").config()
 
+
 module.exports.getUser = async (req, res) => {
     res.send("Hello, testing 1,2,3...")
 }
+
 
 module.exports.register = async (req, res) => {
     
@@ -23,6 +25,7 @@ module.exports.register = async (req, res) => {
         res.send({ status: 'error', error: 'Username is already taken! ❌'})
     }
 }
+
 
 module.exports.login = async (req, res) => {
 
@@ -53,9 +56,23 @@ module.exports.login = async (req, res) => {
     }         
 }
 
-module.exports.getUserData = async (req, res) => {
 
+module.exports.getUserData = async (req, res) => {
+    
+    //userId to be extracted from token
+    const user = await UserModel.findById(req.userId)
+
+    if (user) {
+        const userData = {
+            username: user.username,
+            mistakes: user.mistakes
+        }
+        return res.json({status: "ok", user: userData})
+    } else {
+        return res.status(404).json({status: "error", message: "User not found!"})
+    }
 }
+
 
 module.exports.mistakes_put_request = (req, res) => {
     const { username } = req.params;
