@@ -57,7 +57,7 @@ module.exports.login = async (req, res) => {
 }
 
 
-module.exports.getUserData = async (req, res) => {
+module.exports.dashboard = async (req, res) => {
     
     //userId to be extracted from token
     const user = await UserModel.findById(req.userId)
