@@ -4,7 +4,8 @@ import axios from "axios"
 import { baseURL } from '../utils/constant';
 import { jwtDecode } from 'jwt-decode';
 
-function Account(props) {
+function Account({ userState }) {
+    const {user, setUser} = userState
 
     const navigate = useNavigate()
 
@@ -16,16 +17,20 @@ function Account(props) {
             }
         })
         .then(res => {
-            console.log(res.data)
+            const userData = res.data.user
+            setUser({
+                username: userData.username,
+                mistakes: userData.mistakes
+            })
         })
         .catch(error => {
             console.error('There was an error!', error.res)
             navigate('/login')
         })
-    })
+    }, [])
 
    const handlePost = () => {
-        axios.put(`${baseURL}/update/${props.user.username}`, {mistakes: [...props.user.mistakes, "!!!WORKING? PT. 3???"]})
+        axios.put(`${baseURL}/update/${user.username}`, {mistakes: [...user.mistakes, "!!!WORKING? PT. 3???"]})
         .then((res) => {
             console.log(res.data)
         })
@@ -36,22 +41,16 @@ function Account(props) {
 
     const logged_in = () => {
        return <div>
-            {`Hello ${props.user.username}!`}
+            {`Hello ${user.username}!`}
             <div>
                 <h4>Previous quiz mistakes:</h4>
-                {props.user.mistakes}
+                {user.mistakes}
             </div>
             <button onClick={handlePost}>
                 Test Post Requst
             </button>
         </div>
     }
-
-    // useEffect(() => {
-    //     if(!props.user){
-    //         navigate('/login')
-    //     }
-    // })
 
 
     return (
