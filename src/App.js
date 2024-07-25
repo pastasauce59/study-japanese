@@ -17,6 +17,9 @@ import Account from './Components/Account';
 function App() {
   const [show, setShow] = useState(false)
   const [user, setUser] = useState(false)
+  const [isAuthenticated, setIsAuthenticated] = useState(false)
+
+  const userState = { user, setUser }
 
   let handleShow = () => {
     setShow(!show)
@@ -27,7 +30,7 @@ function App() {
       
       <div className='circle'></div>
       
-      <NavigationBar />
+      <NavigationBar isAuthenticated={isAuthenticated} />
 
       <Routes>
         <Route exact path='/' element={
@@ -66,15 +69,15 @@ function App() {
             
           </div>
         } />
-        <Route exact path='/login' element={<Login setUser={setUser} />} />
-        <Route exact path='/signup' element={<SignUp setUser={setUser} />} />
+        <Route exact path='/login' element={<Login setIsAuthenticated={setIsAuthenticated} />} />
+        <Route exact path='/signup' element={<SignUp />} />
         <Route exact path='/hiragana' element={<HiraganaCharacters />} />
         <Route exact path='/hiragana/study' element={<HiraganaStudy />} />
         <Route exact path='/hiragana/quiz' element={<QuizSelect from={'Hiragana'} />} />
         <Route exact path='/katakana' element={<KatakanaCharacters />} />
         <Route exact path='/katakana/study' element={<KatakanaStudy />} />
         <Route exact path='/katakana/quiz' element={<QuizSelect from={'Katakana'} />} />
-        <Route exact path='/account' element={<Account user={user} />} />
+        <Route exact path='/account' element={<Account userState={userState} />} />
         {/* <Route path='*' element={<Navigate replace to='/' />} /> */}
         <Route path='*' element={<Error />} />
 
