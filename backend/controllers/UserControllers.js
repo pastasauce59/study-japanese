@@ -20,9 +20,9 @@ module.exports.register = async (req, res) => {
             password: newPassword,
             mistakes: req.body.mistakes
         })
-        res.send(user)
+        return res.json(user)
     } catch (err){
-        res.send({ status: 'error', error: 'Username is already taken! ❌'})
+        return res.json({ status: 'error', error: 'Username is already taken! ❌'})
     }
 }
 
@@ -60,7 +60,7 @@ module.exports.login = async (req, res) => {
 module.exports.dashboard = async (req, res) => {
     
     //userId to be extracted from token
-    const user = await UserModel.findById(req.userId)
+    const user = await UserModel.findById(req.user.userId)
 
     if (user) {
         const userData = {

@@ -10,14 +10,18 @@ function Account(props) {
 
     useEffect(() => {
         const token = localStorage.getItem('token')
-        if (token) {
-            const user = jwtDecode(token)
-            console.log(user)
-            if(!user) {
-                localStorage.removeItem('token')
-                navigate('/login')
-            } 
-        }
+        axios.get(`${baseURL}/dashboard`, {
+            headers: {
+                'Authorization': `Bearer ${token}`
+            }
+        })
+        .then(res => {
+            console.log(res.data)
+        })
+        .catch(error => {
+            console.error('There was an error!', error.res)
+            navigate('/login')
+        })
     })
 
    const handlePost = () => {
