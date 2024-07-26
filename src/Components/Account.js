@@ -44,7 +44,7 @@ function Account({ userState }) {
             {`Hello ${user.username}!`}
             <div>
                 <h4>Previous quiz mistakes:</h4>
-                {user.mistakes}
+                {user.mistakes.length < 1 ? "Looks like you there's no mistakes yet!" : user.mistakes}
             </div>
             <button onClick={handlePost}>
                 Test Post Requst
