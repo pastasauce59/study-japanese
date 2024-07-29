@@ -44,7 +44,7 @@ function Account({ userState }) {
             {`Hello ${user.username}!`}
             <div>
                 <h4>Previous quiz mistakes:</h4>
-                {user.mistakes.length < 1 ? "Looks like you there's no mistakes yet!" : user.mistakes}
+                {user.mistakes.length == 0 ? "Looks like there is nothing here yet!" : user.mistakes}
             </div>
             <button onClick={handlePost}>
                 Test Post Requst
@@ -55,7 +55,7 @@ function Account({ userState }) {
 
     return (
         <div>
-        {logged_in()}
+        {user ? logged_in() : "Loading..."}
         </div>
     );
 }

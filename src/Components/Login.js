@@ -23,12 +23,7 @@ const Login = (props) => {
     } else {
       console.log(response.data)
       localStorage.setItem('token', response.data.token)
-      // props.setUser({
-      //   username: response.data.user.username,
-      //   mistakes: response.data.user.mistakes
-      // })
-      // Redirect user to the home page or a protected route
-      console.log('Logging in with:', username, password)
+      props.setIsAuthenticated(true)
       navigate('/account')
     }
   };
