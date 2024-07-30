@@ -2,6 +2,13 @@
 import { Navbar, Nav, NavDropdown, Container } from 'react-bootstrap';
 
 function NavigationBar(props) {
+
+    const token = localStorage.getItem("token")
+
+    const handleLogOut = () => {
+        localStorage.clear()
+    }
+
     return (
         <div className='navbar'>
            <Navbar fixed="top" bg="dark" variant="dark" expand="lg">
@@ -24,12 +31,21 @@ function NavigationBar(props) {
                         </NavDropdown>
                     </Nav>
                     <Nav>
+                        { token ? 
+                        <NavDropdown title="My account 👤" >
+                        <NavDropdown.Item 
+                            href="/account">Dashboard</NavDropdown.Item>
+                        <NavDropdown.Item
+                            href="/login" onClick={handleLogOut}>Log out</NavDropdown.Item>
+                        </NavDropdown> 
+                        : 
                         <NavDropdown title="Sign In 👤" >
                             <NavDropdown.Item 
                             href="/login">Login - Coming Soon!</NavDropdown.Item>
                             <NavDropdown.Divider />
                             <NavDropdown.Item href="/signup">Sign Up - Coming Soon!</NavDropdown.Item>
                         </NavDropdown>
+                       }
                     </Nav>
                     </Navbar.Collapse>
                 </Container>
